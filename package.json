@@ -36,7 +36,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "npm@10.9.3",
   "workspaces": [
     "."
   ]
