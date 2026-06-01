@@ -1,3 +1,5 @@
+"use client"
+
 import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
 import { useCallback, useEffect, useState } from "react"
 import {
@@ -395,7 +397,7 @@ const CYKAlgorithmTool = () => {
         Steps: {currentStepIndex} / {steps.length}
       </div>
       {table.length > 0 && visibleTable.length > 0 && (
-        <div className="flex flex-row gap-4 overflow-x-auto mb-4">
+        <div className="mb-4 flex flex-row gap-4 overflow-x-auto">
           {currentStepIndex > 0 && steps[currentStepIndex - 1] && (
             <Alert className="h-full flex-1" variant="default">
               <AlertTitle className="">

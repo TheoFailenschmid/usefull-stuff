@@ -1,23 +1,11 @@
-"use client"
-import { courses } from "@/components/course-routing"
-import { Badge } from "@/components/ui/badge"
-import {
-    Card,
-    CardAction,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import Link from "next/link"
-import { use, useState } from "react"
+import { courses } from "@/components/course-routing";
 
 export default function Page({
   params,
 }: {
-  params: Promise<{ tool: string; course: string }>
+  params: { tool: string; course: string }
 }) {
-  const { tool: toolId, course: courseId } = use(params)
+  const { tool: toolId, course: courseId } = params
   const tool = courses
     .find((c) => c.course === courseId)
     ?.tools.find((t) => t.id === toolId)
@@ -33,5 +21,14 @@ export default function Page({
         <tool.commponent />
       </div>
     </div>
+  )
+}
+
+export function generateStaticParams() {
+  return courses.flatMap((course) =>
+    course.tools.map((tool) => ({
+      course: course.course,
+      tool: tool.id,
+    }))
   )
 }
