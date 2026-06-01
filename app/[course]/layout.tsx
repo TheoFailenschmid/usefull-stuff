@@ -33,7 +33,7 @@ export default function Layout({
                 <IconMenu />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="">
+            <DropdownMenuContent className="w-max">
               {courses.map((course) => (
                 <Link key={course.course} href={`/${course.course}`}>
                   <DropdownMenuItem>{course.name}</DropdownMenuItem>
