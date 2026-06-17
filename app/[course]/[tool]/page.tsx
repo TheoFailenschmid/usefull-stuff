@@ -18,7 +18,7 @@ export default async function Page({
     <div className="min-h-screen">
       <h2>{tool.name}</h2>
       <div className="mt-4">
-        <tool.commponent />
+        <tool.component />
       </div>
     </div>
   )
