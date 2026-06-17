@@ -1,17 +1,17 @@
 import { courses } from "@/components/course-routing";
 
-export default function Page({
+export default async function Page({
   params,
 }: {
-  params: { tool: string; course: string }
+  params: Promise<{ tool: string; course: string }>
 }) {
-  const { tool: toolId, course: courseId } = params
+  const { tool: toolId, course: courseId } = await params
   const tool = courses
     .find((c) => c.course === courseId)
     ?.tools.find((t) => t.id === toolId)
 
   if (!tool) {
-    return
+    return null
   }
 
   return (

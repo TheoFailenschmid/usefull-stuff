@@ -9,8 +9,12 @@ import {
 } from "@/components/ui/card"
 import Link from "next/link"
 
-export default function Page({ params }: { params: { course: string } }) {
-  const { course: courseId } = params
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ course: string }>
+}) {
+  const { course: courseId } = await params
   const course = courses.find((c) => c.course === courseId)
 
   return (
